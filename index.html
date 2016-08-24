@@ -25,11 +25,11 @@
         </div>
         <div id="endpoint1-input" class="form-left">
           First endpoint
-          <input id="endpoint1" class="form-group form-control">
+          <input id="endpoint1" class="endpoint-input form-group form-control">
         </div>
         <div id="endpoint2-input" class="form-right">
           Second endpoint
-          <input id="endpoint2" class="form-group form-control">
+          <input id="endpoint2" class="endpoint-input form-group form-control">
         </div>
           <button type="button" id="test-btn" class="btn btn-block btn-primary">
                Start tests
@@ -37,12 +37,10 @@
       </form>
     </div><!-- form-container -->
   </div><!-- cvtestpage -->
-  <div class="result1"></div>
-  <div class="result2"></div>
+  <div class="results">
+  </div>
 </body>
 <script src="js/jquery.min.js"></script>
-<script>
-    $(':input:enabled:visible:first').focus();
-    </script>
+<script src="js/endpoint.class.js"></script>
 <script src="js/resttest.js"></script>
 </html>
