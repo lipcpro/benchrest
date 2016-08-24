@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Benchmark CV's rest Url's</title>
+<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"  />
+<link rel="stylesheet" href="css/style.css" type="text/css"  />
+</head>
+<body>
+  <div class="cvtestpage">
+  <div class="form-container">
+  <h3>Benchmark CV's rest Url's</h3>
+  <div class="instructions">
+      please enter the base url for the server to be tested, how many<br />
+      times you wish to repeat the test as well as each endpoint to be tested
+   </div><br />
+      <form >
+        <div id="base-url-input" class="form-left">
+          Server base url
+          <input id="base-url" class="form-group form-control">
+        </div>
+        <div id="test-reps-input" class="form-right">
+          how many reps of the test
+          <input id="test-reps" class="form-group form-control">
+        </div>
+        <div id="endpoint1-input" class="form-left">
+          First endpoint
+          <input id="endpoint1" class="form-group form-control">
+        </div>
+        <div id="endpoint2-input" class="form-right">
+          Second endpoint
+          <input id="endpoint2" class="form-group form-control">
+        </div>
+          <button type="button" id="test-btn" class="btn btn-block btn-primary">
+               Start tests
+          </button>
+      </form>
+    </div><!-- form-container -->
+  </div><!-- cvtestpage -->
+  <div class="result1"></div>
+  <div class="result2"></div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script>
+    $(':input:enabled:visible:first').focus();
+    </script>
+<script src="js/cvtest.js"></script>
+</html>
+<!-- 
+<div class="form-group">
+              <input type="text" class="form-control" name="txt_uname_email" placeholder="Username or E mail ID" required />
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" name="txt_password" placeholder="Your Password" required />
+            </div>
+            <div class="clearfix"></div><hr />
+            <div class="form-group">
+              <button type="submit" name="btn-login" class="btn btn-block btn-primary">
+                  SIGN IN
+                </button>
+            </div> -->

@@ -1,0 +1,200 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+        padding-bottom: 40px;
+        background-color: #f7f7f7;
+        margin-top: 20px;
+        min-width: 960px;
+}
+.container
+{
+	margin-top:80px;
+}
+h2
+{
+	font-family:Tahoma, Geneva, sans-serif;
+	color:#00a2d1;
+}
+.form-container
+{
+	width:600px;
+	margin:0 auto;
+	background:#fff;
+	padding: 25px;
+	box-shadow: 0px 0px 2px rgba(0,0,0,0.4);
+	border-radius:3px;
+}
+.form-group
+{
+  width:250px;
+}
+
+.form-left
+{
+  display: inline;
+  clear: right;
+  float:left;
+}
+
+.form-right
+{
+  display: inline;
+  float:right;
+}
+
+button
+{
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:25px;
+}
+label
+{
+	font-family:Tahoma, Geneva, sans-serif;
+	color:.00a9d1;
+}
+a
+{
+	text-decoration:underline;
+}
+
+/* home page style */
+
+.header
+{
+	text-align:center;
+	font-size:25px;
+	color:#fff;
+	background:#00a2d1;
+	height:60px;
+	width:100%;
+}
+.header a
+{
+	color:#f9f9f9;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:25px;
+	text-decoration:none;
+	position:relative;
+	top:15px;
+}
+.header .left
+{
+	float:left;
+	position:relative;
+	left:150px;
+}
+.header .right
+{
+	float:right;
+	position:relative;
+	right:150px;
+}
+.content
+{
+	margin:0 auto;
+	margin-top:100px;
+	text-align:center;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size:55px;
+	color:#00a2d1;
+}
+.content p
+{
+	font-size:30px;
+	color:#004567;
+	width: 960px;
+	margin:0 auto;
+}
+
+.toy_search {
+  margin-bottom: 4em;
+}
+
+.toy_search_form {
+  clear: left;
+}
+
+.search_button {
+	clear: left;
+}
+
+.toytable_header {
+  clear: both;
+}
+
+.toytable_top {
+  border-top: solid 1px;
+}
+
+.col1 {
+  clear: left;
+}
+
+.col {
+  display: inline;
+  float: left;
+  background: white;
+  margin-right: auto;
+  margin-left: auto;
+  width: 172px;
+  border-left: solid 1px;
+  border-bottom: solid 1px;
+  padding-left: 1em;
+}
+
+.col5 {
+  border-right: solid 1px;
+}
+
+.order {
+  float: right;
+}
+
+.alpha {
+  margin-right: 0;
+}
+
+.omega {
+  margin-left: 0;
+}
+
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+/* http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified */
+
+.clearfix:before,
+.clearfix:after,
+.col:before,
+.col:after {
+  content: '.';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  font-size: 0;
+  line-height: 0;
+  width: 0;
+  height: 0;
+}
+
+.clearfix:after,
+.col:after {
+  clear: both;
+}
+
+/*
+  The following zoom:1 rule is specifically for IE6 + IE7.
+  Move to separate stylesheet if invalid CSS is a problem.
+*/
+
+.clearfix,
+.col {
+  zoom: 1;
+}
