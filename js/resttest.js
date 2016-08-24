@@ -11,13 +11,16 @@ $('#test-btn').click(function() {
 
 
 
-
+// this has to be included in the button function somehow
 $.ajax({
   url: $( "#base_url" ).val,
   data: {
   },
   success: function( result ) {
+    //stop the timer and record the time
     $( "#weather-temp" ).html( "<strong>" + result + "</strong> degrees" );
+  }else{
+    //stop the timer and increment the fail counter
   }
 });
 
