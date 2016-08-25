@@ -5,9 +5,10 @@
   var endpoints = [];
 
   // Start the tests when the button is clicked.
-  $('#test-btn').on('click', function() {
+  $('#test-btn').on('click', function(e) {
 
-    // [TODO] - Add JS validation here before resuming with tests.
+    // [TODO] - Add JS validation here before resuming with tests. If validation fails:
+    // return false;
 
     // Get all of the endpoints.
     fillEndpointsArray();
@@ -22,12 +23,15 @@
     var server = $('#base-url').val();
 
     // For each textbox with class of endpoint-input, grab the value and create a new endpoint.
+    var i = 1;
     $('.endpoint-input').each(function(e) {
       var url = server + '/' + $(this).val();
 
-      var newEndpoint = new Endpoint(url);
+      var newEndpoint = new Endpoint(url, i);
       // Change endpoint properties here, if necessary.
       endpoints.push(newEndpoint);
+
+      i++;
     });
 
     return endpoints;
