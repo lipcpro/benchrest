@@ -7,8 +7,28 @@
   // Start the tests when the button is clicked.
   $('#test-btn').on('click', function(e) {
 
-    // [TODO] - Add JS validation here before resuming with tests. If validation fails:
-    // return false;
+    // [TODO] - Add JS validation here before resuming with tests.
+    //if($('#base-url').is(':empty')) {
+    if($.trim($("#base-url").html())=='') {
+      alert('Please enter the server\'s url');
+      $('#base-url').focus();
+      return;
+    }
+    if($('#test-reps').is(':empty')) {
+      alert('Please enter the number of tests to be run');
+      $('#test-reps').focus();
+      return;
+    }
+    if($('#endpoint1').is(':empty')) {
+      alert('Please enter the first endpoint\'s relative url');
+      $('#endpoint1').focus();
+      return;
+    }
+    if($('#endpoint2').is(':empty')) {
+      alert('Please enter the second endpoint\'s relative url');
+      $('#endpoint2').focus();
+      return;
+    }
 
     // Get all of the endpoints.
     fillEndpointsArray();
