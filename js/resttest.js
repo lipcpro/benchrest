@@ -9,22 +9,22 @@
 
     // [TODO] - Add JS validation here before resuming with tests.
     //if($('#base-url').is(':empty')) {
-    if($.trim($("#base-url").html())=='') {
+    if( !$("#base-url").val()) {
       alert('Please enter the server\'s url');
       $('#base-url').focus();
       return;
     }
-    if($('#test-reps').is(':empty')) {
+    if(!$('#test-reps').val()) {
       alert('Please enter the number of tests to be run');
       $('#test-reps').focus();
       return;
     }
-    if($('#endpoint1').is(':empty')) {
+    if(!$('#endpoint1').val()) {
       alert('Please enter the first endpoint\'s relative url');
       $('#endpoint1').focus();
       return;
     }
-    if($('#endpoint2').is(':empty')) {
+    if(!$('#endpoint2').val()) {
       alert('Please enter the second endpoint\'s relative url');
       $('#endpoint2').focus();
       return;
