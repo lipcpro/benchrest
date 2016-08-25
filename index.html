@@ -8,37 +8,39 @@
 </head>
 <body>
   <div class="cvtestpage">
-  <div class="form-container">
-  <h3>Benchmark rest Url's</h3>
-  <div class="instructions">
-      please enter the base url for the server to be tested, how many<br />
-      times you wish to repeat the test as well as each endpoint to be tested
-   </div><br />
-      <form >
+    <div class="form-container">
+      <h3>Benchmark REST URLs</h3>
+      <div class="instructions">
+        <p>Please enter the base URL for the server to be tested, how many times you wish to repeat the test as well as each endpoint to be tested.</p>
+      </div>
+      <form>
         <div id="base-url-input" class="form-left">
-          Server base url
+          <label for="base-url">Server base URL</label>
           <input id="base-url" class="form-group form-control">
         </div>
         <div id="test-reps-input" class="form-right">
-          how many reps of the test
+          <label for="test-reps">How many reps of the test</label>
           <input id="test-reps" class="form-group form-control">
         </div>
         <div id="endpoint1-input" class="form-left">
-          First endpoint
+          <label for="endpoint1">First endpoint</label>
           <input id="endpoint1" class="endpoint-input form-group form-control">
         </div>
         <div id="endpoint2-input" class="form-right">
-          Second endpoint
+          <label for="endpoint2">Second endpoint</label>
           <input id="endpoint2" class="endpoint-input form-group form-control">
         </div>
-          <button type="button" id="test-btn" class="btn btn-block btn-primary">
-               Start tests
-          </button>
+        <button type="button" id="test-btn" class="btn btn-block btn-primary">Start tests</button>
       </form>
     </div><!-- form-container -->
   </div><!-- cvtestpage -->
-  <div class="results">
+
+  <div class="container">
+    <div class="results col-xs-12">
+      <!-- Test results show here when the test is complete. -->
+    </div>
   </div>
+
 </body>
 <script src="js/jquery.min.js"></script>
 <script src="js/endpoint.class.js"></script>
