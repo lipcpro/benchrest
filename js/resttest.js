@@ -1,28 +1,39 @@
-var counter1 = 0;
-var counter2 = 0;
-var fail1 = 0;
-var fail2 = 0;
+(function($) {
 
-$('#test-btn').click(function() {
-  //$(this).toggle();
-  var server = $("#base-url").val;
-  alert(server);
+  $(':input:enabled:visible:first').focus();
+
+  var endpoints = [];
+
+  // Start the tests when the button is clicked.
+  $('#test-btn').on('click', function() {
+
+    // [TODO] - Add JS validation here before resuming with tests.
+
+    // Get all of the endpoints.
+    fillEndpointsArray();
+
+    // Start the test sequence.
+    for (var i = 0; i < endpoints.length; i++) {
+      endpoints[i].connect();
+    }
   });
 
+  function fillEndpointsArray() {
+    var server = $('#base-url').val();
 
+    // For each textbox with class of endpoint-input, grab the value and create a new endpoint.
+    $('.endpoint-input').each(function(e) {
+      var url = server + '/' + $(this).val();
 
-// this has to be included in the button function somehow
-$.ajax({
-  url: $( "#base_url" ).val,
-  data: {
-  },
-  success: function( result ) {
-    //stop the timer and record the time
-    $( "#weather-temp" ).html( "<strong>" + result + "</strong> degrees" );
-  }else{
-    //stop the timer and increment the fail counter
+      var newEndpoint = new Endpoint(url);
+      // Change endpoint properties here, if necessary.
+      endpoints.push(newEndpoint);
+    });
+
+    return endpoints;
   }
-});
+
+})(jQuery);
 
 /*
 psuedocode
