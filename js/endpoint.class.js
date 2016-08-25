@@ -4,16 +4,16 @@ var Endpoint = function(ID, url) {
   this.ID = ID;
   this.timerStart = null;
   this.timerEnd = null;
-  this.requestTime = 0;
-  this.fail = false;
+  this.requestTime = null;
+  this.fail = null;
+  this.errorCode = null;
   this.testComplete = false;
 }
 
 Endpoint.prototype.connect = function() {
-  var that = this;
-
-  return $.ajax({
-    url: that.url,
+  var jqXHR = $.ajax({
+    context: this,
+    url: this.url,
 
     // We need to use jsonp to allow for cross-domain requests.
     dataType: 'jsonp',
@@ -26,36 +26,27 @@ Endpoint.prototype.connect = function() {
      */
     beforeSend: function() {
       // Start the timer.
-      that.timerStart = Date.now();
-      that.appendResult();
+      this.timerStart = Date.now();
+      this.appendResult();
 
       $('#test-btn').addClass('disabled');
-    },
+    }
+  }).done(function(data, textStatus, jqXHR) {
+    // Stop the timer.
+    this.timerEnd = Date.now();
+    // Time spent calling the endpoint in milliseconds.
+    this.requestTime = new Date(this.timerEnd - this.timerStart);
+  }).fail(function(jqXHR, textStatus, errorThrown) {
+    // Reset the timer...
+    this.timerStart = null;
+    // ...and throw an error.
+    this.fail = true;
+    this.errorCode = jqXHR.status;
 
-    /**
-     * Fire this when the endpoint returns with data.
-     */
-    success: function( result, status, jqXHR ) {
-      // Stop the timer.
-      that.timerEnd = Date.now();
-      // Time spent calling the endpoint in milliseconds.
-      that.requestTime = new Date(that.timerEnd - that.timerStart);
-    },
+  }).always(function() {
+    this.updateResult();
 
-    /**
-     * Fire this when the endpoint errors out.
-     */
-    error: function( jqXHR, status, errorMsg ) {
-      // Reset the timer...
-      that.timerStart = null;
-      // ...and throw an error message.
-      that.fail = true;
-    },
-  }).done(function() {
-    that.updateResult();
-
-    that.testComplete = true;
-    return that.testComplete;
+    this.testComplete = true;
   });
 }
 
@@ -70,7 +61,7 @@ Endpoint.prototype.updateResult = function() {
 
   var status = '';
   if (this.fail) {
-    status = 'error';
+    status = 'danger';
   } else {
     status = 'success';
   }
@@ -83,8 +74,10 @@ Endpoint.prototype.updateResult = function() {
     .css('width', '100%')
     .addClass('progress-bar-' + status);
 
-  if (typeof this.requestTime == 'object') {
+  if (!this.fail) {
     $result.find('.result-time').text(this.formatRequestTime());
+  } else {
+    $result.find('.result-time').text('Error ' + this.errorCode);
   }
 
   $result.find('.sr-only').text('100% Complete (' + status + ')');
