@@ -27,7 +27,7 @@
     $('.endpoint-input').each(function(e) {
       var url = server + '/' + $(this).val();
 
-      var newEndpoint = new Endpoint(url, i);
+      var newEndpoint = new Endpoint(i, url);
       // Change endpoint properties here, if necessary.
       endpoints.push(newEndpoint);
 

@@ -1,4 +1,4 @@
-var Endpoint = function(url, ID) {
+var Endpoint = function(ID, url) {
   // Set default properties.
   this.url = url;
   this.ID = ID;
