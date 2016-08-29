@@ -76,4 +76,6 @@ stop total timer
  repeat for second endpoint
 end tests
 print results
+
+results should include slowest fastest mean/average total time for x iterations
 */
