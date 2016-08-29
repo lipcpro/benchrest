@@ -33,9 +33,13 @@
     // Get all of the endpoints.
     fillEndpointsArray();
 
+    var numIterations = $('#test-reps').val();
+
     // Start the test sequence.
-    for (var i = 0; i < endpoints.length; i++) {
-      endpoints[i].connect();
+    for (var i = 1; i <= numIterations; i++) {
+      for (var u = 0; u < endpoints.length; u++) {
+        endpoints[u].connect(i);
+      }
     }
   });
 
