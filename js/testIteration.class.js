@@ -1,11 +1,6 @@
-var testIteration = function(endpoint, group) {
+var testIteration = function(endpoint, group, iterations) {
   this.endpoint = endpoint;
   this.group = group;
-  this.timerStart = null;
-  this.timerEnd = null;
-  this.requestTime = null;
-  this.fail = null;
-  this.errorCode = null;
   this.testComplete = false;
 }
 

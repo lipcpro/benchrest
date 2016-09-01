@@ -2,18 +2,21 @@ var Endpoint = function(ID, url) {
   // Set default properties.
   this.url = url;
   this.ID = ID;
-  this.iterations = [];
+  this.timerStart = null;
+  this.timerEnd = null;
+  this.requestTime = null;
+  this.fail = null;
+  this.errorCode = null;
 }
 
-Endpoint.prototype.connect = function(i) {
-  var iteration = new testIteration(this, i);
+Endpoint.prototype.connect = function() {
 
   var jqXHR = $.ajax({
     context: this,
     url: this.url,
 
     // We need to use jsonp to allow for cross-domain requests.
-    dataType: 'jsonp',
+    dataType: 'json',
 
     data: {},
     async: true,
@@ -23,28 +26,21 @@ Endpoint.prototype.connect = function(i) {
      */
     beforeSend: function() {
       // Start the timer.
-      iteration.timerStart = Date.now();
-      iteration.appendResult();
+      this.timerStart = Date.now();
 
-      $('#test-btn').addClass('disabled');
     }
   }).done(function(data, textStatus, jqXHR) {
     // Stop the timer.
-    iteration.timerEnd = Date.now();
+    this.timerEnd = Date.now();
     // Time spent calling the endpoint in milliseconds.
-    iteration.requestTime = new Date(iteration.timerEnd - iteration.timerStart);
+    this.requestTime = new Date(this.timerEnd - this.timerStart);
+    return this.requestTime;
   }).fail(function(jqXHR, textStatus, errorThrown) {
     // Reset the timer...
-    iteration.timerStart = null;
+    this.timerStart = null;
     // ...and throw an error.
-    iteration.fail = true;
-    iteration.errorCode = jqXHR.status;
-
-  }).always(function() {
-    iteration.updateResult();
-
-    iteration.testComplete = true;
+    this.fail = true;
+    this.errorCode = jqXHR.status;
+    return -1;
   });
-
-  this.iterations[i] = iteration;
 }

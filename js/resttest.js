@@ -3,12 +3,15 @@
   $(':input:enabled:visible:first').focus();
 
   var endpoints = [];
+  var slowest   = [];
+  var fastest   = [];
+  var mean      = [];
+  var total     = [];
 
   // Start the tests when the button is clicked.
   $('#test-btn').on('click', function(e) {
 
     // [TODO] - Add JS validation here before resuming with tests.
-    //if($('#base-url').is(':empty')) {
     if( !$("#base-url").val()) {
       alert('Please enter the server\'s url');
       $('#base-url').focus();
@@ -29,6 +32,7 @@
       $('#endpoint2').focus();
       return;
     }
+    $('#test-btn').addClass('disabled');
 
     // Get all of the endpoints.
     fillEndpointsArray();
@@ -36,11 +40,8 @@
     var numIterations = $('#test-reps').val();
 
     // Start the test sequence.
-    for (var i = 1; i <= numIterations; i++) {
-      for (var u = 0; u < endpoints.length; u++) {
-        endpoints[u].connect(i);
-      }
-    }
+    testIteration(endpoint[0], 'endpoint1', numIterations);
+    testIteration(endpoint[1], 'endpoint2', numIterations);
   });
 
   function fillEndpointsArray() {
