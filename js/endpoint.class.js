@@ -42,5 +42,14 @@ Endpoint.prototype.connect = function() {
     this.fail = true;
     this.errorCode = jqXHR.status;
     return -1;
+  })/*.always(function() {
+    iteration.updateResult();
+
+    iteration.testComplete = true;
   });
+//*/
+}
+
+Endpoint.prototype.formatTime = function(time) {
+  return time.toISOString().slice(11, -1);
 }

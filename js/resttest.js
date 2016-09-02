@@ -3,10 +3,6 @@
   $(':input:enabled:visible:first').focus();
 
   var endpoints = [];
-  var slowest   = [];
-  var fastest   = [];
-  var mean      = [];
-  var total     = [];
 
   // Start the tests when the button is clicked.
   $('#test-btn').on('click', function(e) {
@@ -42,6 +38,7 @@
     // Start the test sequence.
     testIteration(endpoint[0], 'endpoint1', numIterations);
     testIteration(endpoint[1], 'endpoint2', numIterations);
+    $('#test-btn').removeClass('disabled');
   });
 
   function fillEndpointsArray() {
