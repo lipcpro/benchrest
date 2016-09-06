@@ -5,7 +5,6 @@ var Endpoint = function(ID, url) {
   this.timerStart = null;
   this.timerEnd = null;
   this.requestTime = null;
-  this.fail = null;
   this.errorCode = null;
 }
 

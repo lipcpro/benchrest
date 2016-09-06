@@ -119,11 +119,11 @@ a
 	clear: left;
 }
 
-.toytable_header {
+.table_header {
   clear: both;
 }
 
-.toytable_top {
+.table_top {
   border-top: solid 1px;
 }
 
@@ -137,13 +137,14 @@ a
   background: white;
   margin-right: auto;
   margin-left: auto;
-  width: 172px;
+  width: 150px;
   border-left: solid 1px;
   border-bottom: solid 1px;
   padding-left: 1em;
+  height: 1.5em;
 }
 
-.col5 {
+.col7 {
   border-right: solid 1px;
 }
 

@@ -8,6 +8,7 @@
   $('#test-btn').on('click', function(e) {
 
     // [TODO] - Add JS validation here before resuming with tests.
+/*
     if( !$("#base-url").val()) {
       alert('Please enter the server\'s url');
       $('#base-url').focus();
@@ -28,7 +29,7 @@
       $('#endpoint2').focus();
       return;
     }
-    $('#test-btn').addClass('disabled');
+    $('#test-btn').addClass('disabled');//*/
 
     // Get all of the endpoints.
     fillEndpointsArray();
@@ -36,6 +37,7 @@
     var numIterations = $('#test-reps').val();
 
     // Start the test sequence.
+    drawTable();
     testIteration(endpoint[0], 'endpoint1', numIterations);
     testIteration(endpoint[1], 'endpoint2', numIterations);
     $('#test-btn').removeClass('disabled');
@@ -59,6 +61,12 @@
     return endpoints;
   }
 
+  function drawTable() {
+
+    $('.results').append(output);
+    
+  }
+  
 })(jQuery);
 
 /*
