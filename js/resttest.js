@@ -37,9 +37,8 @@
     var numIterations = $('#test-reps').val();
 
     // Start the test sequence.
-    drawTable();
-    testIteration(endpoint[0], 'endpoint1', numIterations);
-    testIteration(endpoint[1], 'endpoint2', numIterations);
+    testIteration(endpoints[0], 'endpoint1', numIterations);
+    testIteration(endpoints[1], 'endpoint2', numIterations);
     $('#test-btn').removeClass('disabled');
   });
 
@@ -61,12 +60,7 @@
     return endpoints;
   }
 
-  function drawTable() {
 
-    $('.results').append(output);
-    
-  }
-  
 })(jQuery);
 
 /*
