@@ -127,10 +127,6 @@ a
   border-top: solid 1px;
 }
 
-.col1 {
-  clear: left;
-}
-
 .col {
   display: inline;
   float: left;
@@ -144,7 +140,15 @@ a
   height: 1.5em;
 }
 
-.col7 {
+.col1 {
+  clear: left;
+}
+
+.col2, .col4, .col6 {
+  width: 80px;
+}
+
+.col8 {
   border-right: solid 1px;
 }
 

@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="css/style.css" type="text/css"  />
 </head>
 <body>
-  <div class="cvtestpage">
+  <div class="testpage">
     <div class="form-container">
       <h3>Benchmark REST URLs</h3>
       <div class="instructions">
@@ -40,29 +40,33 @@
     <div id="table">
     <div id="table_header">
     <span class="table_top col col1">EndPoint</span><!-- col1 -->
-    <span class="table_top col col2">Fastest</span><!-- col2 -->
-    <span class="table_top col col3">#</span><!-- col3 -->
-    <span class="table_top col col4">Slowest</span><!-- col4 -->
-    <span class="table_top col col5">#</span><!-- col5 -->
-    <span class="table_top col col6">Average</span><!-- col6 -->
-    <span class="table_top col col7">Total time</span><!-- col7 -->
+    <span class="table_top col col2">Failures</span><!-- col2 -->
+    <span class="table_top col col3">Fastest</span><!-- col3 -->
+    <span class="table_top col col4">#</span><!-- col4 -->
+    <span class="table_top col col5">Slowest</span><!-- col5 -->
+    <span class="table_top col col6">#</span><!-- col6 -->
+    <span class="table_top col col7">Average</span><!-- col7 -->
+    <span class="table_top col col8">Total time</span><!-- col8 -->
     </div><!-- table_header -->
       <!-- Test results show here when the test is complete. -->
-       <div id="endpoints">
-            <span id="endpoint1"  class="col col1"></span><!-- col1 -->
-            <span id="slowest1" class="col col2"></span><!-- col2 -->
-            <span id="slowIteration1" class="col col3"></span><!-- col3 -->
-            <span id="fastest1"  class="col col4"></span><!-- col4 -->
-            <span id="fastIteration1" class="col col5"></span><!-- col5 -->
-            <span id="mean1"  class="col col6"></span><!-- col6 -->
-            <span id="total1" class="col col7"></span><!-- col7 -->
-            <span id="endpoint2"  class="col col1"></span><!-- col1 -->
-            <span id="slowest2" class="col col2"></span><!-- col2 -->
-            <span id="slowIteration2" class="col col3"></span><!-- col3 -->
-            <span id="fastest2"  class="col col4"></span><!-- col4 -->
-            <span id="fastIteration2" class="col col5"></span><!-- col5 -->
-            <span id="mean2"  class="col col6"></span><!-- col6 -->
-            <span id="total2" class="col col7"></span><!-- col7 -->
+       <div id="endpoint1">
+            <span class="col col1 endpoint"></span><!-- col1 -->
+            <span class="col col2 fail"></span><!-- col2 -->
+            <span class="col col3 slowest"></span><!-- col3 -->
+            <span class="col col4 slowIteration"></span><!-- col4 -->
+            <span class="col col5 fastest"></span><!-- col5 -->
+            <span class="col col6 fastIteration"></span><!-- col6 -->
+            <span class="col col7 mean"></span><!-- col7 -->
+            <span class="col col8 total"></span><!-- col8 -->
+        </div><div id="endpoint2">
+            <span class="col col1 endpoint"></span><!-- col1 -->
+            <span class="col col2 fail"></span><!-- col2 -->
+            <span class="col col3 slowest"></span><!-- col3 -->
+            <span class="col col4 slowIteration"></span><!-- col4 -->
+            <span class="col col5 fastest"></span><!-- col5 -->
+            <span class="col col6 fastIteration"></span><!-- col6 -->
+            <span class="col col7 mean"></span><!-- col7 -->
+            <span class="col col8 total"></span><!-- col8 -->
         </div><!--   -->
     </div><!-- table -->
     </div>

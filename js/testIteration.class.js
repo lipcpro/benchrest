@@ -21,22 +21,22 @@ var testIteration = function(endpoint, group, iterations) {
     }else if(this.time < this.fastest[time] || this.fastest[time] == 0) {
       this.fastest[time] = time;
       this.fastest[iteration] = i;
-      $(this.group + ' fastest').text(this.fastest[time]);
-      $(this.group + ' fastIteration').text(this.fastest[iteration]);
+      $('#' + this.group + ' fastest').text(this.fastest[time]);
+      $('#' + this.group + ' fastIteration').text(this.fastest[iteration]);
     }else if(this.time > this.slowest[time])  {
       this.slowest[time] = this.time;
       this.slowest[iteration] = i;
-      $(this.group + ' slowest').text(this.slowest[time]);
-      $(this.group + ' slowIteration').text(this.slowest[iteration]);
+      $('#' + this.group + ' slowest').text(this.slowest[time]);
+      $('#' + this.group + ' slowIteration').text(this.slowest[iteration]);
     }
     /* get each result and determine if it's a new slow, fast, compute mean/average and total time for all iterations*/
   }
   this.timerEnd = Date.now();
   this.totalTime = new Date(this.timerEnd - this.timerStart);
   this.mean = this.totalTime/i;
-  $(this.group + ' mean').text(this.mean);
+  $('#' + this.group + ' mean').text(this.mean);
   this.testComplete = true;
-  $(this.group + ' total').text(this.totalTime);
+  $('#' + this.group + ' total').text(this.totalTime);
 }
 
 
